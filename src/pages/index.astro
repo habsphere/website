@@ -1,17 +1,17 @@
 ---
+import BaseLayout from "./BaseLayout.astro";
 
 ---
+<BaseLayout title='Home'>
+    <section class="home-intro">
+        <h1>habs</h1>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+        <p>I'm just a guy</p>
+        <p>extra text here yes very nice, experimental astro website</p>
+
+        <ul class="home-links">
+            <li><a href="#">Writing</a></li>
+            <li><a href="#">Reviews</a></li>
+        </ul>
+    </section>
+</BaseLayout>

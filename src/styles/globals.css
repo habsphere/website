@@ -1,0 +1,45 @@
+/* global.css
+    Site-wide layout and shared components.
+    Commented out for now as we experiment with css
+*/
+
+.container {
+    width: 100%;
+    max-width: var(--width-default);
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+}
+
+.site-header {
+    border-bottom: 1px solid var(--border);
+    padding-block: var(--space-4);
+}
+
+.site-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.site-nav {
+    display: flex;
+    gap: var(--space-6);
+    list-style: none;
+    font-size: var(--text-sm);
+}
+
+.site-nav a {
+    text-decoration: none;
+}
+
+.site-main {
+    padding-block: var(--space-12);
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding-block: var(--space-8);
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+}

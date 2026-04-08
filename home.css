@@ -1,0 +1,6 @@
+.home-links {
+    text-decoration: none;
+    display: flex;
+    gap: var(--space-6);
+    list-style: none;
+}

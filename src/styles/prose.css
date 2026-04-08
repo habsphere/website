@@ -1,0 +1,45 @@
+/* prose.css
+    Applied only inside .prose containers.
+    For long reading (Reviews, articles, non-code related writing, etc)
+*/
+
+.prose {
+    font-family: var(--font-prose);
+    font-size: var(--text-lg);
+    line-height: 1.75;
+    max-width: 68ch;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+    font-family: var(--font-ui);
+    /* mono headlines */
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+}
+
+.prose p+p {
+    margin-top: var(--space-4);
+}
+
+.prose code {
+    font-family: var(--font-code);
+    font-size: 0.875em;
+    background: var(--surface);
+    padding: 0.1em 0.3em;
+}
+
+.prose pre {
+    background: var(--surface);
+    padding: var(--space-4);
+    overflow-x: auto;
+    margin-block: var(--space-6);
+}
+
+.prose blockquote {
+    border-left: 2px solid var(--border);
+    padding-left: var(--space-4);
+    color: var(--text-muted);
+    margin-block: var(--space-6);
+}
