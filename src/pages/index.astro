@@ -1,17 +1,37 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-
 ---
 <BaseLayout title='Home'>
     <section class="home-intro">
-        <h1>habs</h1>
+        <h1><i>habs</i></h1>
 
-        <p>I'm just a guy</p>
-        <p>extra text here yes very nice, experimental astro website</p>
+        <p>I know that I know nothing</p>
+        <p>My little corner of the internet. Reviews, writing, notes, learning, etc.</p>
 
-        <ul class="home-links">
-            <li><a href="#">Writing</a></li>
-            <li><a href="#">Reviews</a></li>
-        </ul>
     </section>
+    <nav class="home-links">
+        <a href="#">Writing</a>
+        <a href="#">Reviews</a>
+        <a href="./ideas">Ideas</a>
+    </nav>
 </BaseLayout>
+
+<style>
+    .home-intro h1 {
+        font-size: var(--text-2xl);
+        padding-block: var(--space-8);
+    }
+
+    .home-links {
+        padding-top: var(--space-8);
+        display: flex;
+        justify-content: center;
+        gap: var(--space-8);
+    }
+
+    .home-links a {
+        text-decoration: none;
+        font-size: var(--text-sm);
+    }
+
+</style>
