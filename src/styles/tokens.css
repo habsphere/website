@@ -33,7 +33,8 @@ Root tokens (spacing, text size, typography, base transitions)
     /* --- Font roles (swapped by theme, overridden per-section) --- */
     --font-ui: "Space Mono", monospace;
     --font-body: "Space Mono", monospace;
-    --font-prose: "Source Serif 4", Georgia, serif;
+    --font-prose: "PT Serif", Georgia, serif;
+    --font-display: "Prata", Georgia, serif;
     --font-code: "Space Mono", monospace;
 
     /* --- Layout widths --- */

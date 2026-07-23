@@ -22,6 +22,13 @@
     gap: var(--space-4);
 }
 
+.site-mark {
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: var(--text-base);
+    font-style: italic;
+}
+
 .site-nav {
     display: flex;
     gap: var(--space-6);
@@ -35,6 +42,7 @@
 
 .site-main {
     padding-block: var(--space-16);
+    flex: 1;
 }
 
 .site-footer {

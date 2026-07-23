@@ -1,0 +1,131 @@
+---
+import '../styles/tokens.css'
+import '../styles/themes.css'
+import '../styles/globals.css'
+import '../styles/base.css'
+import '../styles/motion.css'
+
+interface Props {
+    title?: string;
+    prose?: boolean;
+}
+
+const { title = 'habs website', prose = false } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>{title}</title>
+
+        <!--
+          Always: Space Mono 400. The site shell + nav stay monospace.
+          Conditional: Prata + PT Serif, only when a page opts into prose=true
+          (i.e. anything under /writing). Single Google request so we still
+          benefit from one HTTP/2 multiplexed connection.
+        -->
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap"/>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet"/>
+
+        {prose && (
+            <>
+                <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Prata&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"/>
+                <link href="https://fonts.googleapis.com/css2?family=Prata&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+            </>
+        )}
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="container">
+                <a href="/" class="site-mark">habs</a>
+                <nav>
+                    <ul class="site-nav">
+                        <li><a href="/writing">Writing</a></li>
+                        <li><a href="/security">Security</a></li>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/ideas">Ideas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="site-main">
+            <div class="container">
+                <slot />
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <p>Personal website / Blog (?) / Rabbithole</p>
+            </div>
+        </footer>
+
+        <script>
+            /*
+              Reveal-on-scroll. Inline so Astro bundles + hashes it; one HTTP
+              request, runs as a module by default. ~30 lines, no deps.
+            */
+            const ROOT_MARGIN = '0px 0px -8% 0px';
+
+            function indexChildren(staggerEl) {
+                Array.from(staggerEl.children).forEach((child, i) => {
+                    child.style.setProperty('--i', i);
+                });
+            }
+
+            function markAll(el) {
+                if (el.classList.contains('reveal-stagger')) {
+                    indexChildren(el);
+                }
+                el.classList.add('is-revealed');
+            }
+
+            function init() {
+                const targets = document.querySelectorAll(
+                    '.reveal, .reveal-stagger'
+                );
+                if (!targets.length) return;
+
+                const prefersReducedMotion =
+                    window.matchMedia &&
+                    window.matchMedia('(prefers-reduced-motion: reduce)')
+                        .matches;
+
+                if (
+                    prefersReducedMotion ||
+                    !('IntersectionObserver' in window)
+                ) {
+                    targets.forEach(markAll);
+                    return;
+                }
+
+                document
+                    .querySelectorAll('.reveal-stagger')
+                    .forEach(indexChildren);
+
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        for (const entry of entries) {
+                            if (!entry.isIntersecting) continue;
+                            markAll(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    },
+                    { threshold: 0.12, rootMargin: ROOT_MARGIN }
+                );
+
+                targets.forEach((el) => observer.observe(el));
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        </script>
+    </body>
+</html>

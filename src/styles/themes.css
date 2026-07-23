@@ -2,6 +2,10 @@
    Colors and themes
     TODO: Color/theme switcher
    [data-theme="name"] block below for new themes.
+
+   Accent: #8031A7 (saturated purple). Used for link hover, focus, selection
+   tint, and any interactive affordance that needs to stand out without
+   adding visual weight.
 */
 
 /* --- Light theme (default) --- */
@@ -16,10 +20,11 @@
     --text-faint: #999999;
 
     --link: #0a0a0a;
-    --link-hover: #555555;
+    --link-hover: #8031A7;
 
-    --accent: #0a0a0a;
-    /* will become a real color later */
+    --accent: #8031A7;
+    --accent-select: rgba(128, 49, 167, 0.3);
+    /* 30% alpha: visible on light & dark, doesn't fight the foreground */
 }
 
 /* --- Dark theme --- */
@@ -33,9 +38,12 @@
     --text-faint: #555555;
 
     --link: #f0f0f0;
-    --link-hover: #aaaaaa;
+    --link-hover: #b366d6;
+    /* lighter purple for visibility on dark bg */
 
-    --accent: #f0f0f0;
+    --accent: #b366d6;
+    --accent-select: rgba(128, 49, 167, 0.4);
+    /* slightly higher alpha in dark mode for visibility */
 }
 
 /* --- System preference --- */
@@ -48,7 +56,8 @@
         --text-muted: #aaaaaa;
         --text-faint: #555555;
         --link: #f0f0f0;
-        --link-hover: #aaaaaa;
-        --accent: #f0f0f0;
+        --link-hover: #b366d6;
+        --accent: #b366d6;
+        --accent-select: rgba(128, 49, 167, 0.4);
     }
 }

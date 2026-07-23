@@ -1,18 +1,19 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout title='Home'>
-    <section class="home-intro">
+    <section class="home-intro reveal">
         <h1><i>habs</i></h1>
 
         <p>I know that I know nothing</p>
-        <p>My little corner of the internet. Reviews, writing, notes, learning, etc.</p>
+        <p>My little corner of the internet. Writing, security, experiments, learning, etc.</p>
 
     </section>
-    <nav class="home-links">
-        <a href="#">Writing</a>
-        <a href="#">Reviews</a>
-        <a href="./ideas">Ideas</a>
+    <nav class="home-links reveal">
+        <a href="/writing">Writing</a>
+        <a href="/security">Security</a>
+        <a href="/labs">Labs</a>
+        <a href="/ideas">Ideas</a>
     </nav>
 </BaseLayout>
 
@@ -27,6 +28,7 @@ import BaseLayout from "./BaseLayout.astro";
         display: flex;
         justify-content: center;
         gap: var(--space-8);
+        flex-wrap: wrap;
     }
 
     .home-links a {

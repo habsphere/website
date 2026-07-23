@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Security">
+    <header class="section-header reveal">
+        <h1>Security</h1>
+        <p class="section-lede">Cybersecurity research, notes, and CTF writeups.</p>
+    </header>
+
+    <p class="reveal">Nothing here yet. This is where writeups, research notes, and tooling explorations will land once they exist.</p>
+</BaseLayout>
+
+<style>
+    .section-header {
+        margin-bottom: var(--space-8);
+    }
+
+    .section-header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .section-lede {
+        color: var(--text-muted);
+        margin-top: var(--space-2);
+    }
+</style>

@@ -1,0 +1,101 @@
+---
+import WritingIndexLayout from '../../layouts/WritingIndexLayout.astro';
+
+/*
+  Static list for now. When entries grow past ~5, promote to a content collection
+  (src/content/writing/*.md) and iterate via getCollection().
+*/
+const entries = [
+    {
+        slug: 'lorem-ipsum',
+        title: 'Lorem Ipsum',
+        date: '2026-07-23',
+        summary: 'A throwaway test entry. Used to verify the ProseLayout looks right end to end — fonts, measure, line height, headings.',
+        type: 'Note',
+    },
+];
+---
+
+<WritingIndexLayout>
+    <header class="section-header reveal">
+        <h1>Writing</h1>
+        <p class="section-lede subtitle">Reviews, essays, reflections, notes.</p>
+    </header>
+
+    <ul class="entry-list reveal-stagger">
+        {entries.map((entry) => (
+            <li class="entry">
+                <a href={`/writing/${entry.slug}`} class="entry-link">
+                    <div class="entry-meta">
+                        <time datetime={entry.date}>{entry.date}</time>
+                        <span class="entry-type">{entry.type}</span>
+                    </div>
+                    <h2 class="entry-title">{entry.title}</h2>
+                    <p class="entry-summary subtitle">{entry.summary}</p>
+                </a>
+            </li>
+        ))}
+    </ul>
+</WritingIndexLayout>
+
+<style>
+    .section-header {
+        margin-bottom: var(--space-12);
+    }
+
+    .section-header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .section-lede {
+        margin-top: var(--space-2);
+    }
+
+    .entry-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    .entry {
+        border-top: 1px solid var(--border);
+        padding-top: var(--space-6);
+    }
+
+    .entry:last-child {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: var(--space-6);
+    }
+
+    .entry-link {
+        text-decoration: none;
+        display: block;
+    }
+
+    .entry-meta {
+        display: flex;
+        gap: var(--space-4);
+        align-items: baseline;
+        font-size: var(--text-xs);
+        color: var(--text-faint);
+        font-family: var(--font-ui);
+    }
+
+    .entry-type {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .entry-title {
+        font-family: var(--font-display);
+        font-size: var(--text-xl);
+        margin-top: var(--space-2);
+        line-height: 1.2;
+    }
+
+    .entry-summary {
+        margin-top: var(--space-2);
+        max-width: 64ch;
+    }
+</style>

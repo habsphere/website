@@ -1,0 +1,69 @@
+---
+import ProseLayout from '../../layouts/ProseLayout.astro';
+---
+
+<ProseLayout title="Lorem Ipsum — Writing">
+    <header class="entry-header">
+        <p class="entry-type">Note</p>
+        <h1>Lorem Ipsum</h1>
+        <p class="entry-blurb subtitle">A throwaway test entry. Used to verify the ProseLayout looks right end to end — fonts, measure, line height, headings.</p>
+        <time class="entry-date" datetime="2026-07-23">2026-07-23</time>
+    </header>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+    <h2>The point of a paragraph</h2>
+
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. The grammar doesn't matter here; the rhythm does. Long sentences should still feel scannable, and short ones should still breathe. We're testing that the line-height and the measure give each sentence room without making the page feel airy or sparse.</p>
+
+    <p>A short follow-up paragraph, just to make sure rhythm changes register.</p>
+
+    <blockquote>
+        A blockquote exists to break cadence. If this reads as a quiet aside rather than a callout, the indent and muted color are doing their job.
+    </blockquote>
+
+    <p>Back to the flow. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+    <h3>A subheading</h3>
+
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+
+    <p>Inline <code>code</code> should feel like part of the prose, not a sticker on top of it. A small background, a monospace family, slightly smaller — that's all.</p>
+
+    <pre><code>// and a code block, in case the writing section ever holds real snippets
+function nothingHappens(input) &#123;
+    return input;
+&#125;</code></pre>
+
+    <p>Closing paragraph. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+</ProseLayout>
+
+<style>
+    .entry-header {
+        margin-bottom: var(--space-8);
+    }
+
+    .entry-type {
+        font-family: var(--font-ui);
+        font-size: var(--text-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-faint);
+    }
+
+    .entry-header h1 {
+        margin-top: var(--space-2);
+    }
+
+    .entry-blurb {
+        margin-top: var(--space-4);
+    }
+
+    .entry-date {
+        display: block;
+        margin-top: var(--space-4);
+        font-family: var(--font-ui);
+        font-size: var(--text-xs);
+        color: var(--text-faint);
+    }
+</style>

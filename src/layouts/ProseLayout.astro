@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import '../styles/prose.css';
+import '../styles/writing.css';
+
+interface Props {
+    title?: string;
+}
+
+const { title = 'habs website' } = Astro.props;
+---
+
+<BaseLayout title={title} prose>
+    <article class="prose writing">
+        <slot />
+    </article>
+</BaseLayout>

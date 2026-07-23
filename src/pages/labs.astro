@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Labs">
+    <header class="section-header reveal">
+        <h1>Labs</h1>
+        <p class="section-lede">Experiments, demos, and interactive things.</p>
+    </header>
+
+    <p class="reveal">Nothing here yet. This is where experiments, demos, and interactive bits will land once they exist.</p>
+</BaseLayout>
+
+<style>
+    .section-header {
+        margin-bottom: var(--space-8);
+    }
+
+    .section-header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .section-lede {
+        color: var(--text-muted);
+        margin-top: var(--space-2);
+    }
+</style>
